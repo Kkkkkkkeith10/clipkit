@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+license = {text = "MIT"}
+authors = [{name = "Chun Yiu Lau"}]
+name = "clipkit"
+version = "0.1.0"
+description = "A small library for turning a narrated script into a captioned video."
+requires-python = ">=3.11"
+# The core -- config, render profiles, prompt packs, the LLM client -- is
+# stdlib only, deliberately. tomllib and urllib cover it, so a consumer that
+# only authors scripts installs nothing. Weight lives in the extras.
+dependencies = []
+
+[project.optional-dependencies]
+# Shots, TTS, captions and rendering. Needs ffmpeg and ffprobe on PATH.
+media = ["pydantic>=2", "pillow>=10", "edge-tts>=6"]
+dev = ["pytest>=8"]
+# Chinese word segmentation, so captions do not split a word across cues.
+segment = ["jieba>=0.42"]
+
+[tool.setuptools.packages.find]
+include = ["clipkit*"]
+
+[tool.setuptools.package-data]
+clipkit = ["py.typed"]

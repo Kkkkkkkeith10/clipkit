@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+
+# Local secrets and OAuth credentials
+.env
+.env.*
+!.env.example
+client_secret*.json
+client_secrets*.json
+.youtube-token*.json
+.youtube-manage-token.json
+
+# Generated video and intermediate artifacts. A single episode is ~800 MB of
+# images, audio, per-shot segments and renders, all of it reproducible from
+# the script, the plan and the recorded seeds.
+output/
+**/.youtube-upload.json
+*.log
+
+# release hygiene
+node_modules/
+.env
+.env.*
+!.env.example
+.dev.vars
+!.dev.vars.example
+.wrangler/
+.vite/
+dist/
+build/
+.svelte-kit/
+dev-dist/
+*.sqlite
+*.sqlite-*
+*.db
+*.jks
+*.keystore
+key.properties
+token*.json
+.youtube*token*.json
+client_secret*.json
+__pycache__/
+*.log
